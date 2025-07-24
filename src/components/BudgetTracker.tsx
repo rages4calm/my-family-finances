@@ -191,59 +191,10 @@ const BudgetTracker: React.FC = () => {
   const [budgetData, setBudgetData] = useState<BudgetItem[]>([]);
 
   useEffect(() => {
-    // Simulate budget data - in real app this would come from your database
-    const sampleBudget: BudgetItem[] = [
-      {
-        category: 'Groceries',
-        budgeted: 800,
-        spent: 0, // Start with 0 since we removed fake data
-        remaining: 800,
-        percentage: 0,
-        color: '#10b981'
-      },
-      {
-        category: 'Utilities',
-        budgeted: 300,
-        spent: 0,
-        remaining: 300,
-        percentage: 0,
-        color: '#3b82f6'
-      },
-      {
-        category: 'Gas & Transportation',
-        budgeted: 400,
-        spent: 0,
-        remaining: 400,
-        percentage: 0,
-        color: '#8b5cf6'
-      },
-      {
-        category: 'Dining Out',
-        budgeted: 250,
-        spent: 0,
-        remaining: 250,
-        percentage: 0,
-        color: '#f59e0b'
-      },
-      {
-        category: 'Entertainment',
-        budgeted: 200,
-        spent: 0,
-        remaining: 200,
-        percentage: 0,
-        color: '#ef4444'
-      },
-      {
-        category: 'Shopping',
-        budgeted: 300,
-        spent: 0,
-        remaining: 300,
-        percentage: 0,
-        color: '#06b6d4'
-      }
-    ];
-
-    setBudgetData(sampleBudget);
+    // Initialize with empty budget data - users will add their own categories
+    const emptyBudget: BudgetItem[] = [];
+    
+    setBudgetData(emptyBudget);
   }, [selectedMonth]);
 
   const totalBudgeted = budgetData.reduce((sum, item) => sum + item.budgeted, 0);

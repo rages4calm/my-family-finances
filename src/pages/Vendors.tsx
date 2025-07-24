@@ -391,16 +391,16 @@ const Vendors: React.FC<VendorsProps> = ({ onNavigate }) => {
   return (
     <PageContainer>
       <PageHeader>
-        <PageTitle>Vendors</PageTitle>
+        <PageTitle>Payees & Services</PageTitle>
         <SearchInput
           type="text"
-          placeholder="Search vendors..."
+          placeholder="Search payees & services..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <Button variant="primary" onClick={() => handleOpenModal()}>
           <Plus size={16} />
-          Add Vendor
+          Add Payee/Service
         </Button>
       </PageHeader>
 
@@ -456,14 +456,14 @@ const Vendors: React.FC<VendorsProps> = ({ onNavigate }) => {
         <ModalContent>
           <ModalHeader>
             <ModalTitle>
-              {editingVendor ? 'Edit Vendor' : 'Add New Vendor'}
+              {editingVendor ? 'Edit Payee/Service' : 'Add New Payee/Service'}
             </ModalTitle>
             <CloseButton onClick={handleCloseModal}>&times;</CloseButton>
           </ModalHeader>
 
           <FormGrid>
             <FormGroup fullWidth>
-              <Label>Vendor Name *</Label>
+              <Label>Payee/Service Name *</Label>
               <Input
                 type="text"
                 value={formData.name}
@@ -539,7 +539,7 @@ const Vendors: React.FC<VendorsProps> = ({ onNavigate }) => {
               Cancel
             </Button>
             <Button variant="primary" onClick={handleSaveVendor}>
-              {editingVendor ? 'Update' : 'Create'} Vendor
+              {editingVendor ? 'Update' : 'Create'} Payee/Service
             </Button>
           </ModalActions>
         </ModalContent>

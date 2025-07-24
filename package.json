@@ -1,6 +1,6 @@
 {
   "name": "my-family-finances",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "My Family Finances Management Application",
   "main": "public/electron.js",
   "homepage": "./",

@@ -73,4 +73,4 @@ package-lock.json
 .yarn-integrity
 
 # Claude conversation files
-.claude/
+.claude/release-v1.0.5/

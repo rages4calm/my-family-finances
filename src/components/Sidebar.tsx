@@ -140,8 +140,8 @@ const DisabledNavItem = styled.div`
 const menuItems = [
   { key: 'dashboard', icon: Home, label: 'Dashboard', enabled: true },
   { key: 'accounts', icon: CreditCard, label: 'Chart of Accounts', enabled: true },
-  { key: 'customers', icon: Users, label: 'Customers', enabled: true },
-  { key: 'vendors', icon: Truck, label: 'Vendors', enabled: true },
+  { key: 'customers', icon: Users, label: 'Family Members', enabled: true },
+  { key: 'vendors', icon: Truck, label: 'Payees & Services', enabled: true },
   { key: 'expenses', icon: Receipt, label: 'Expenses', enabled: true }
 ];
 
@@ -186,7 +186,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle, currentPage, onN
 
       {!collapsed && (
         <Footer>
-          My Family Finances v1.0.0
+          My Family Finances v1.0.5
           <br />
           © 2025 Prewitt Family
           <br /><br />

@@ -237,7 +237,7 @@ const AccountPanel: React.FC<AccountPanelProps> = ({ isOpen, onClose, onLogout, 
     totalExpenses: 0,
     monthlyBudget: 5000.00,
     accountsManaged: 15,
-    daysActive: 45
+    daysActive: 0
   });
 
   const [showEditProfile, setShowEditProfile] = useState(false);
@@ -246,6 +246,12 @@ const AccountPanel: React.FC<AccountPanelProps> = ({ isOpen, onClose, onLogout, 
   useEffect(() => {
     const currentUser = authService.getCurrentUser();
     if (currentUser) {
+      // Calculate actual days active since account creation
+      const createdDate = new Date(currentUser.createdAt);
+      const today = new Date();
+      const timeDiff = today.getTime() - createdDate.getTime();
+      const daysActive = Math.floor(timeDiff / (1000 * 3600 * 24));
+
       setUserProfile(prev => ({
         ...prev,
         name: currentUser.profile.name,
@@ -253,7 +259,8 @@ const AccountPanel: React.FC<AccountPanelProps> = ({ isOpen, onClose, onLogout, 
         phone: currentUser.profile.phone || '',
         address: currentUser.profile.address || '',
         role: currentUser.role === 'admin' ? 'Administrator' : 'User',
-        avatar: currentUser.profile.name.split(' ').map(n => n[0]).join('').toUpperCase()
+        avatar: currentUser.profile.name.split(' ').map(n => n[0]).join('').toUpperCase(),
+        daysActive: daysActive
       }));
     }
   }, [isOpen]);

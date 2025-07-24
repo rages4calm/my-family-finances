@@ -427,7 +427,7 @@ const Customers: React.FC<CustomersProps> = ({ onNavigate }) => {
         </PageTitle>
         <SearchInput
           type="text"
-          placeholder="Search customers..."
+          placeholder="Search family members..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
