@@ -9,7 +9,9 @@
     "react-dev": "react-scripts start",
     "electron-dev": "cross-env ELECTRON_IS_DEV=true electron .",
     "build": "react-scripts build",
-    "build-release": "npm run build && npx electron-packager . MyFamilyFinances --platform=win32 --arch=x64 --out=dist --overwrite",
+    "build-release": "npm run build && npm run electron-rebuild && npx electron-packager . MyFamilyFinances --platform=win32 --arch=x64 --out=dist --overwrite --icon=public/family.ico",
+    "build-installer": "npm run build-release && .\\create-distribution.bat",
+    "electron-rebuild": "electron-rebuild",
     "electron-build": "electron-builder",
     "test": "react-scripts test",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
@@ -46,7 +48,7 @@
     "concurrently": "^7.6.0",
     "cross-env": "^7.0.3",
     "electron": "^22.0.0",
-    "electron-builder": "^24.0.0",
+    "electron-builder": "^24.13.3",
     "electron-packager": "^17.1.2",
     "electron-rebuild": "^3.2.9",
     "eslint": "^8.34.0",
@@ -80,9 +82,18 @@
       "category": "public.app-category.finance"
     },
     "win": {
-      "target": "dir",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon.ico",
       "verifyUpdateCodeSignature": false,
-      "sign": null
+      "sign": null,
+      "artifactName": "${productName}-${version}-Setup.${ext}"
     },
     "linux": {
       "target": "AppImage"
@@ -90,9 +101,17 @@
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
-      "shortcutName": "My Family Finances"
+      "shortcutName": "My Family Finances",
+      "displayLanguageSelector": false,
+      "installerLanguages": [
+        "en_US"
+      ],
+      "license": "LICENSE",
+      "warningsAsErrors": false,
+      "deleteAppDataOnUninstall": false
     }
   },
   "browserslist": {
