@@ -1,4 +1,4 @@
-# My Family Finances v1.0.0
+# My Family Finances v1.0.5
 
 A **production-ready** family finance management application built with Electron and React, featuring secure local data storage, comprehensive financial tracking, and a modern user interface.
 
