@@ -1,5 +1,12 @@
 # My Family Finances v1.0.5
 
+## 💖 Support This Project
+
+If you find this app helpful and want to support its development, consider donating:
+
+[![Donate with PayPal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?hosted_button_id=M4BMMUBSQ3P7L)
+
+
 A **production-ready** family finance management application built with Electron and React, featuring secure local data storage, comprehensive financial tracking, and a modern user interface.
 
 ## 🎯 **Features**
